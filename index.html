@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>个人简历表格</title>
+    <style>
+        body {
+            font-family: '微软雅黑', sans-serif;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        caption {
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px 5px 0 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+            width: 15%;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="number"] {
+            max-width: 100px;
+        }
+        input[type="file"] {
+            padding: 3px;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+		th[data-icon="name"]::before { content: "👤"; }      /* 姓名 */
+		        th[data-icon="gender"]::before { content: "👫"; }    /* 性别 */
+		        th[data-icon="age"]::before { content: "🎂"; }       /* 年龄 */
+		        th[data-icon="hometown"]::before { content: "🏠"; }  /* 籍贯 */
+		        th[data-icon="phone"]::before { content: "📞"; }     /* 联系电话 */
+		        th[data-icon="email"]::before { content: "✉️"; }    /* 电子邮箱 */
+		        th[data-icon="edu"]::before { content: "🎓"; }       /* 学历 */
+		        th[data-icon="health"]::before { content: "🏥"; }   /* 健康状况 */
+		        th[data-icon="marriage"]::before { content: "💍"; }  /* 婚姻状况 */
+		        th[data-icon="job"]::before { content: "💼"; }      /* 求职意向 */
+		        th[data-icon="major"]::before { content: "📚"; }     /* 专业 */
+		        th[data-icon="school"]::before { content: "🏫"; }    /* 毕业院校 */
+		        th[data-icon="cert"]::before { content: "📜"; }      /* 技能证书 */
+		        th[data-icon="hobby"]::before { content: "🎨"; }     /* 特长爱好 */
+		        th[data-icon="project"]::before { content: "📈"; }  /* 项目经历 */
+		        th[data-icon="self"]::before { content: "💬"; }      /* 自我评价 */
+		
+    </style>
+</head>
+<body>
+    <form>
+        <table>
+            <caption>个人简历</caption>
+            
+            <!-- 基本信息 -->
+            <tr>
+               <th data-icon="name">姓名</th>
+                <td><input type="text" required></td>
+                 <th data-icon="gender">性别</th>
+                <td>
+                    <select>
+                        <option>男</option>
+                        <option selected>女</option>
+                    </select>
+                </td>
+                <th data-icon="age">年龄</th>
+                <td><input type="number" min="18" max="60" required></td>
+            </tr>
+            
+            <tr>
+                 <th data-icon="hometown">籍贯</th>
+                <td><input type="text"></td>
+                 <th data-icon="phone">联系电话</th>
+                <td><input type="tel" pattern="[0-9]{11}" required></td>
+                 <th data-icon="email">邮箱</th>
+                <td><input type="email" required></td>
+            </tr>
+            
+            <tr>
+                 <th data-icon="edu">学历</th>
+                <td>
+                    <select>
+                        <option>本科</option>
+                        <option>硕士</option>
+                        <option>博士</option>
+                    </select>
+                </td>
+                 <th data-icon="health">健康状况</th>
+                <td>
+                    <select>
+                        <option>良好</option>
+                        <option>一般</option>
+                        <option>较差</option>
+                    </select>
+                </td>
+                <th data-icon="marriage">婚姻状况</th>
+                <td>
+                    <select>
+                        <option>未婚</option>
+                        <option>已婚</option>
+                    </select>
+                </td>
+            </tr>
+            
+            <!-- 求职信息 -->
+         <tr>
+              <th data-icon="job">求职意向</th>
+             <td colspan="5">
+                 <!-- 人事部门 -->
+                 <fieldset class="department-group">
+                     <legend>人事部门</legend>
+                     <label><input type="checkbox"> 招聘专员</label>
+                     <label><input type="checkbox"> 薪酬福利主管</label>
+                     <label><input type="checkbox"> 培训发展经理</label>
+                 </fieldset>
+         
+                 <!-- 技术部门 -->
+                 <fieldset class="department-group">
+                     <legend>技术部门</legend>
+                     <label><input type="checkbox"> 前端开发工程师</label>
+                     <label><input type="checkbox"> 后端开发工程师</label>
+                     <label><input type="checkbox"> 数据库管理员</label>
+                 </fieldset>
+         
+                 <!-- 运营部门 -->
+                 <fieldset class="department-group">
+                     <legend>运营部门</legend>
+                     <label><input type="checkbox"> 产品运营</label>
+                     <label><input type="checkbox"> 数据分析师</label>
+                     <label><input type="checkbox"> 用户运营</label>
+                 </fieldset>
+         
+                 <style>
+                     .department-group {
+                         border: 1px solid #ddd;
+                         border-radius: 5px;
+                         margin: 10px 0;
+                         padding: 10px;
+                     }
+                     .department-group legend {
+                         color: #4CAF50;
+                         font-weight: bold;
+                         padding: 0 8px;
+                     }
+                     .department-group label {
+                         display: inline-block;
+                         margin-right: 20px;
+                         min-width: 120px;
+                     }
+                 </style>
+             </td>
+         </tr>
+					
+			<tr>
+                 <th data-icon="major">专业</th>
+                <td>
+                    <select>
+                        <option>软件工程</option>
+                        <option>计算机科学与技术</option>
+                        <option>机械制造及其自动化</option>
+						<option>统计学</option>
+                    </select>
+                </td>
+                 <th data-icon="school">毕业院校</th>
+                <td>
+					<select>
+						<option>鲁东大学</option>
+						<option>烟台大学</option>
+						<option>山东理工大学</option>
+						<option>浙江农林大学</option>
+						<option>其他</option>
+					</select>
+				</td>
+            </tr>
+            
+            <!-- 文件上传 -->
+            <tr>
+                <th>照片上传</th>
+                <td colspan="5"><input type="file" accept="image/*"></td>
+            </tr>
+            
+            <!-- 复选框部分 -->
+            <tr>
+                 <th data-icon="cert">技能证书</th>
+                <td colspan="5">
+                    <label><input type="checkbox"> 英语四级</label>
+                    <label><input type="checkbox"> 计算机二级</label>
+                    <label><input type="checkbox"> 软考证书</label>
+					<label><input type="checkbox">浙大PTA</label>
+                </td>
+            </tr>
+            
+            <tr>
+                 <th data-icon="hobby">爱好</th>
+                <td colspan="5">
+                    <label><input type="checkbox"> 编程</label>
+                    <label><input type="checkbox"> 排球</label>
+                    <label><input type="checkbox"> 阅读</label>
+					<label><input type="checkbox"> 旅行</label>
+					<label><input type="checkbox"> 打瓦</label>
+                </td>
+            </tr>
+            
+            <!-- 文本域 -->
+            <tr>
+                 <th data-icon="project">项目经历</th>
+                <td colspan="5"><textarea rows="4"></textarea></td>
+            </tr>
+            
+            <tr>
+                 <th data-icon="self">自我评价</th>
+                <td colspan="5"><textarea rows="4"></textarea></td>
+            </tr>
+        </table>
+
+        <div class="button-group">
+            <button type="submit">提交</button>
+            <button type="reset">重置</button>
+        </div>
+    </form>
+</body>
+</html>
